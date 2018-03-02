@@ -1,5 +1,5 @@
 # CryptographyAssignments
-List of assignments from Cryptography Course
+> List of assignments from Cryptography Course
 
 # Requirements
 * Python 2.7.14
