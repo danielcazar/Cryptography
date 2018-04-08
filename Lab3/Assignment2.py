@@ -43,14 +43,14 @@ def game_cpa(plaintext):
     # We assume that after sending a message (M0) to the challenger we receive a ciphertext call cipher1
     M0 = plaintext
 
-    cipher1 = aes_cbc_encrypt("1" * (32) + M0)
+    cipher1 = aes_cbc_encrypt("0" * (32) + M0)
     block1 = split_len(binascii.hexlify(cipher1), 32)
 
     #Setting up the Attacker
     b = chr(random.randint(0, 1))  # Random bit
     IV = str(cipher1[-16:])
     Ci = str(cipher1[0:16])
-    M = "1"*padding + b # Message sent to the challenger after training phase. Message is composed of all 1s and string b
+    M = "0"*padding + b # Message sent to the challenger after training phase. Message is composed of all 1s and string b
 
     # Make the trick. IV xor Ci xor M
     xored = xor_block(IV, Ci, M)
